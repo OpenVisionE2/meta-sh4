@@ -35,7 +35,7 @@ KERNEL_IMAGETYPE = "uImage"
 #KERNEL_OUTPUT = "${KERNEL_IMAGETYPE}"
 
 JFFS2_ERASEBLOCK = "0x20000"
-JFFS2_ENDIANNESS = "${@base_conditional('SITEINFO_ENDIANNESS', 'le', '--little-endian', '--big-endian', d)}"
+JFFS2_ENDIANNESS = "${@oe.utils.conditional('SITEINFO_ENDIANNESS', 'le', '--little-endian', '--big-endian', d)}"
 EXTRA_IMAGECMD_jffs2 = "--pad ${JFFS2_ENDIANNESS} --eraseblock=${JFFS2_ERASEBLOCK} --no-cleanmarkers"
 MKUBIFS_ARGS = "--pad ${JFFS2_ENDIANNESS} --eraseblock=${JFFS2_ERASEBLOCK} --no-cleanmarkers"
 DVBMEDIASINK_CONFIG = "--with-wma --with-wmv --with-pcm --with-dtsdownmix --with-eac3"
