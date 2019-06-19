@@ -12,8 +12,6 @@ SRC_URI_append_sh4 += "\
     file://fix-x64-abi.patch \
 "
 
-SRC_URI_append_dm800 += " file://0001_signalfd_and_evendfd.patch"
-
 #remove obsolete conflicting files
 do_install_append() {
     rm -f ${D}${nonarch_base_libdir}/libcrypt-2.25.so
