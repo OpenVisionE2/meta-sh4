@@ -35,10 +35,6 @@ KERNEL_IMAGETYPE = "uImage"
 
 DVBMEDIASINK_CONFIG = "--with-wma --with-wmv --with-pcm --with-dtsdownmix --with-eac3"
 
-IMAGE_CLASSES += "usb_image-sh4"
-
-INITRAMFS_FSTYPES =  "ext2.gz sh4updt"
-
 # Add uImage in tar image boot directory
 IMAGE_CMD_tar_prepend = "\
     cp ${DEPLOY_DIR_IMAGE}/uImage ${IMAGE_ROOTFS}/boot/${KERNEL_FILE}; \
@@ -76,8 +72,7 @@ MACHINE_EXTRA_RDEPENDS += "\
 	libpcre \
 	"
 
-
 require conf/machine/include/tune-sh4.inc
 require conf/machine/include/soc-family.inc
 
-EXTRA_OECONF_append_pn-enigma2 = " --with-sh4stb"
+EXTRA_OECONF_append_pn-enigma2 += "--with-sh4stb"
