@@ -50,7 +50,7 @@ process_file() {
 		elif [ $modelcheck == "spark7162" ]; then
 			mknod -m 0644 /dev/rfmod0 c 150 0
 		elif [ $brandcheck == "spiderbox" ]; then
-			[ "$module" == "aotom" ] && echo "LOAD" > /dev/dbox/oled0
+			[ "$module" == "proton" ] && echo "LOAD" > /dev/vfd && mkdir -p /dev/dbox && ln -s /dev/vfd /dev/dbox/oled0
 		elif [ $modelcheck == "ufc960" ] || [ $modelcheck == "ufs912" ] || [ $modelcheck == "ufs913" ] || [ $modelcheck == "ufs922" ]; then
 			[ "$module" == "kathrein_micom" ] && mknod -m 0660 /dev/vfd c 147 0 && echo "LOAD" > /dev/vfd
 		elif [ $modelcheck == "ufs910" ]; then
